@@ -11,7 +11,7 @@ interface Props {
     weather: WeatherData
 }
 
-const ServerSideGeneration:React.FC<Props> = ({location, weather}) => {
+const IncrementalSideGeneration:React.FC<Props> = ({location, weather}) => {
   return (
     <main className={styles.main}>
       <h1>Server Side Generation</h1>
@@ -32,8 +32,9 @@ export async function getStaticProps(ctx: GetStaticProps){
         props:{
             weather,
             location
-        }
+        },
+        revalidate: 10
     }
 }
 
-export default ServerSideGeneration;
+export default IncrementalSideGeneration;

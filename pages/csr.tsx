@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { WeatherData } from "../server-side/mappers/weather";
+import Temperature from "../components/Temperature";
 
 
 function ClientSideRendering() {
@@ -22,12 +23,7 @@ function ClientSideRendering() {
         <a>Back</a>
       </Link>
       <h2>London</h2>
-      <p>
-        Temperature:
-        <span className={styles.temperature}>
-            {weather.temperature ? `${Math.floor(weather.temperature)} °C` : "-"}
-        </span>
-      </p>
+      <Temperature weather={weather} />
     </main>
   );
 }

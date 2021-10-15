@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { WeatherData } from "../server-side/mappers/weather";
 import { getWeather } from "../server-side/service/weather";
 import { GetServerSidePropsContext } from "next";
+import Temperature from "../components/Temperature";
 
 interface Props {
     location: string,
@@ -18,12 +19,7 @@ const ServerSideRendering:React.FC<Props> = ({location, weather}) => {
         <a>Back</a>
       </Link>
       <h2>{location}</h2>
-      <p>
-        Temperature:
-        <span className={styles.temperature}>
-            {weather.temperature ? `${Math.floor(weather.temperature)} °C` : "-"}
-        </span>
-      </p>
+      <Temperature weather={weather} />
     </main>
   );
 }
